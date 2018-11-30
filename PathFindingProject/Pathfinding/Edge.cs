@@ -28,5 +28,6 @@ namespace PathFindingProject
         public int X { get => x; }
         public int Y { get => y; }
         public Texture2D Image { get => image; set => image = value; }
+        public Edge Parrent { get => parrent; set => parrent = value; }
     }
 }

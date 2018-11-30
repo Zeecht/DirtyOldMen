@@ -41,6 +41,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Pathfinding\AStar.cs" />
     <Compile Include="Background\BackGround.cs" />
     <Compile Include="Lists\Lists.cs" />
     <Compile Include="Pathfinding\Edge.cs" />
