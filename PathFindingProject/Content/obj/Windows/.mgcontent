@@ -4,11 +4,11 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/MortenEllegaardHanse/source/repos/PathFindingProject/PathFindingProject/Content/House.png</File>
-    <File>C:/Users/MortenEllegaardHanse/source/repos/PathFindingProject/PathFindingProject/Content/images.jfif</File>
-    <File>C:/Users/MortenEllegaardHanse/source/repos/PathFindingProject/PathFindingProject/Content/TreeHouse.png</File>
-    <File>C:/Users/MortenEllegaardHanse/source/repos/PathFindingProject/PathFindingProject/Content/Trees.png</File>
-    <File>C:/Users/MortenEllegaardHanse/source/repos/PathFindingProject/PathFindingProject/Content/Wizard.png</File>
-    <File>C:/Users/MortenEllegaardHanse/source/repos/PathFindingProject/PathFindingProject/Content/Grid.png</File>
+    <File>C:/Users/MIKZU/Source/Repos/DirtyOldMen/PathFindingProject/Content/House.png</File>
+    <File>C:/Users/MIKZU/Source/Repos/DirtyOldMen/PathFindingProject/Content/images.jfif</File>
+    <File>C:/Users/MIKZU/Source/Repos/DirtyOldMen/PathFindingProject/Content/TreeHouse.png</File>
+    <File>C:/Users/MIKZU/Source/Repos/DirtyOldMen/PathFindingProject/Content/Trees.png</File>
+    <File>C:/Users/MIKZU/Source/Repos/DirtyOldMen/PathFindingProject/Content/Wizard.png</File>
+    <File>C:/Users/MIKZU/Source/Repos/DirtyOldMen/PathFindingProject/Content/Grid.png</File>
   </SourceFiles>
 </SourceFileCollection>
