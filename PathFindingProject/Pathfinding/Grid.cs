@@ -38,7 +38,7 @@ namespace PathFindingProject
         {
             image = content.Load<Texture2D>("Grid");
             CreateGrid();
-            
+            Check = gridPoints.ElementAt(90);
         }
 
         public void UnloadContent()
@@ -48,8 +48,7 @@ namespace PathFindingProject
 
         public void Update(GameTime gameTime)
         {
-            var t = gridPoints.ElementAt(0);
-            Check = t;
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -16,6 +16,7 @@ namespace PathFindingProject
         List<Objects> list = new List<Objects>();
         BackGround backGround;
         Grid grid;
+        AStar aStar;
 
         public Game1()
         {
@@ -38,7 +39,7 @@ namespace PathFindingProject
             //Background is created
             backGround = new BackGround();
             grid = new Grid(10, 10, graphics.PreferredBackBufferWidth,graphics.PreferredBackBufferHeight);
-
+            aStar = new AStar();
 
             ///<summary>
             ///Objects are created
@@ -101,6 +102,7 @@ namespace PathFindingProject
             // TODO: Add your update logic here
             backGround.Update(gameTime);
             grid.Update(gameTime);
+            aStar.Update(gameTime);
             foreach (var i in list)
             {
                 i.Update(gameTime);

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/MIKZU/Source/Repos/DirtyOldMen/PathFindingProject/Content/Wizard.png</SourceFile>
-  <SourceTime>2018-11-30T19:59:41.7165487+01:00</SourceTime>
-  <DestFile>C:/Users/MIKZU/Source/Repos/DirtyOldMen/PathFindingProject/Content/bin/Windows/Wizard.xnb</DestFile>
-  <DestTime>2018-11-30T20:00:53.6567074+01:00</DestTime>
+  <SourceFile>C:/Users/MortenEllegaardHanse/Documents/GitHub/DirtyOldMen/PathFindingProject/Content/Wizard.png</SourceFile>
+  <SourceTime>2018-11-30T13:40:13.1407171+01:00</SourceTime>
+  <DestFile>C:/Users/MortenEllegaardHanse/Documents/GitHub/DirtyOldMen/PathFindingProject/Content/bin/Windows/Wizard.xnb</DestFile>
+  <DestTime>2018-11-30T20:51:57.4610658+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
