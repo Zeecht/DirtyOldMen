@@ -20,6 +20,26 @@ namespace PathFindingProject
 
         public void Update(GameTime gameTime)
         {
+            
+        }
+
+
+
+
+        public void AstarPathfinding()
+        {
+            var standingPoint = Grid.Check;
+        }
+
+
+
+
+
+
+        public int Heuristic(Edge startPoint, Edge endPoint)
+        {
+            int _return = 2*(Math.Abs(startPoint.X - endPoint.X) + (Math.Abs(startPoint.Y - endPoint.Y)));
+            return _return;
         }
     }
 }

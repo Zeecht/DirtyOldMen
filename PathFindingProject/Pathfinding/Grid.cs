@@ -13,7 +13,7 @@ namespace PathFindingProject
     {
         Texture2D image;
         Rectangle rect;
-        List<Edge> gridPoints;
+        static List<Edge> gridPoints;
 
         int amountOfBoxesX;
         int amountOfBoxesY;
@@ -23,7 +23,7 @@ namespace PathFindingProject
 
         static Edge check;
 
-        internal List<Edge> GridPoints { get => gridPoints; set => gridPoints = value; }
+        public static List<Edge> GridPoints { get => gridPoints; set => gridPoints = value; }
         public static Edge Check { get => check; set => check = value; }
 
         public Grid(int amountOfBoxesX, int amountOfBoxesY, int screenSizeX, int screenSizeY)
