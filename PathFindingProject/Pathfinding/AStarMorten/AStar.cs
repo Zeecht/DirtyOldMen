@@ -382,7 +382,7 @@ namespace PathFindingProject
             else
             {
                 var t = Grid.GridPoints.ElementAt(index - 11);
-                if (!Grid.GridPoints.Contains(t))
+                if (!Lists.OpenList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
                     t.GX = 14;
@@ -391,7 +391,7 @@ namespace PathFindingProject
                 }
 
                 t = Grid.GridPoints.ElementAt(index - 10);
-                if (!Grid.GridPoints.Contains(t))
+                if (!Lists.OpenList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
                     t.GX = 10;
@@ -400,7 +400,7 @@ namespace PathFindingProject
                 }
 
                 t = Grid.GridPoints.ElementAt(index - 9);
-                if (!Grid.GridPoints.Contains(t))
+                if (!Lists.OpenList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
                     t.GX = 14;
@@ -409,7 +409,7 @@ namespace PathFindingProject
                 }
 
                 t = Grid.GridPoints.ElementAt(index + 1);
-                if (!Grid.GridPoints.Contains(t))
+                if (!Lists.OpenList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
                     t.GX = 10;
@@ -418,7 +418,7 @@ namespace PathFindingProject
                 }
 
                 t = Grid.GridPoints.ElementAt(index + 11);
-                if (!Grid.GridPoints.Contains(t))
+                if (!Lists.OpenList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
                     t.GX = 10;
@@ -427,7 +427,7 @@ namespace PathFindingProject
                 }
                 
                 t = Grid.GridPoints.ElementAt(index + 10);
-                if (!Grid.GridPoints.Contains(t))
+                if (!Lists.OpenList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
                     t.GX = 14;
@@ -436,7 +436,7 @@ namespace PathFindingProject
                 }
                 
                 t = Grid.GridPoints.ElementAt(index + 9);
-                if (!Grid.GridPoints.Contains(t))
+                if (!Lists.OpenList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
                     t.GX = 14;
@@ -445,7 +445,7 @@ namespace PathFindingProject
                 }
                 
                 t = Grid.GridPoints.ElementAt(index - 1);
-                if (!Grid.GridPoints.Contains(t))
+                if (!Lists.OpenList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
                     t.GX = 14;
