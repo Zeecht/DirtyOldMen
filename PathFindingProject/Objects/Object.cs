@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PathFindingProject
 {
-    class Objects : IObjects
+    abstract class Object : IObject
     {
       
 

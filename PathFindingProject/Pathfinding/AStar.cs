@@ -20,7 +20,6 @@ namespace PathFindingProject
 
         public void Update(GameTime gameTime)
         {
-            throw new NotImplementedException();
         }
     }
 }

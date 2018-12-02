@@ -13,7 +13,7 @@ namespace PathFindingProject
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        List<Objects> list = new List<Objects>();
+        List<Object> list = new List<Object>();
         BackGround backGround;
         Grid grid;
         AStar aStar;
@@ -72,7 +72,7 @@ namespace PathFindingProject
             spriteBatch = new SpriteBatch(GraphicsDevice);
             backGround.LoadContent(Content);
             grid.LoadContent(Content);
-            foreach (Objects i in list)
+            foreach (Object i in list)
             {
                 i.LoadContent(Content);
             }

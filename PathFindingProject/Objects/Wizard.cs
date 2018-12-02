@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PathFindingProject
 {
-    class Wizard : Objects, IObjects
+    class Wizard : Object, IObject
     {
         Texture2D image;
         Rectangle rect;

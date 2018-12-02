@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace PathFindingProject
 {
-    interface IObjects
+    interface IObject
     {
         void LoadContent(ContentManager content);
         void UnloadContent();
