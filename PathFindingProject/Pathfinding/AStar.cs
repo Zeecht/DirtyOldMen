@@ -28,7 +28,7 @@ namespace PathFindingProject
 
         public void AstarPathfinding()
         {
-
+            var standingPoint = Grid.Check;
         }
 
 
