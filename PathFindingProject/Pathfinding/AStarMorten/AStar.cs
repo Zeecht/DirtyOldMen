@@ -56,8 +56,8 @@ namespace PathFindingProject
                 #endregion
 
 
-
-
+                Lists.ClosedList.Add(edgeToBeChecked);
+                Grid.Check = edgeToBeChecked;
             }
         }
 
