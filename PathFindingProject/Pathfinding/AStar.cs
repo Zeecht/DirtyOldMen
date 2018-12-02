@@ -20,7 +20,26 @@ namespace PathFindingProject
 
         public void Update(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            
+        }
+
+
+
+
+        public void AstarPathfinding()
+        {
+
+        }
+
+
+
+
+
+
+        public int Heuristic(Edge startPoint, Edge endPoint)
+        {
+            int _return = 2*(Math.Abs(startPoint.X - endPoint.X) + (Math.Abs(startPoint.Y - endPoint.Y)));
+            return _return;
         }
     }
 }
