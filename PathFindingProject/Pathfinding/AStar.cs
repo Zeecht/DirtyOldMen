@@ -20,7 +20,7 @@ namespace PathFindingProject
 
         public void Update(GameTime gameTime)
         {
-            
+            AstarPathfinding(Grid.GridPoints.ElementAt(38));
         }
 
 
