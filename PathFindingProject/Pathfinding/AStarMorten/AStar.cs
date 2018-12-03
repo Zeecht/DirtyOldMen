@@ -32,7 +32,7 @@ namespace PathFindingProject
                 Edge lowestFValue = null;
                 foreach (Edge e in Lists.OpenList)
                 {
-                    if (e.FX < lowestFValue.FX || lowestFValue == null)
+                    if (lowestFValue == null || e.FX < lowestFValue.FX)
                     {
                         lowestFValue = e;
                     }
@@ -66,10 +66,10 @@ namespace PathFindingProject
         {
             //Find the index of the value we check
             int index = Grid.GridPoints.IndexOf(checkedEdge);
-            //Finds the object before the object on the list
-            var minValue = index -= 1;
-            //Find the object after the object on the list
-            var maxValue = index += 1;
+            //x value of the edge we are checking
+            var x = checkedEdge.X;
+            //y value of the edge we are checking
+            var y = checkedEdge.Y;
 
             //Checks if its at the side of the grid
             if (checkedEdge.X == 0 || checkedEdge.Y == 0 || checkedEdge.X == 10 || checkedEdge.Y == 10)
