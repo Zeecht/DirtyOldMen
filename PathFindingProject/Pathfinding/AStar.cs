@@ -22,13 +22,21 @@ namespace PathFindingProject
         {
             if (started == false)
             {
-
+                BlockedBlocks();
                 t = new Thread(() => AstarPathfinding(Grid.GridPoints.ElementAt(38)));
                 t.Start();
 
                 started = true;
             }
             
+        }
+
+        public void BlockedBlocks()
+        {
+            for (int i = 24; i <= 94; i+=10)
+            {
+                Lists.BlockedList.Add(Grid.GridPoints.ElementAt(i));
+            }
         }
 
 

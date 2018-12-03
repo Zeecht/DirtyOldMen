@@ -59,7 +59,7 @@ namespace PathFindingProject
 
                 Lists.ClosedList.Add(edgeToBeChecked);
                 Grid.Check = edgeToBeChecked;
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
             }
         }
 
