@@ -13,7 +13,7 @@ namespace PathFindingProject
     {
         Texture2D image;
         Rectangle rect;
-        static List<Edge> gridPoints;
+        static List<Cell> gridPoints;
 
         int amountOfBoxesX;
         int amountOfBoxesY;
@@ -21,10 +21,10 @@ namespace PathFindingProject
         int screenSizeX;
         int screenSizeY;
 
-        static Edge check;
+        static Cell check;
 
-        public static List<Edge> GridPoints { get => gridPoints; set => gridPoints = value; }
-        public static Edge Check { get => check; set => check = value; }
+        public static List<Cell> GridPoints { get => gridPoints; set => gridPoints = value; }
+        public static Cell Check { get => check; set => check = value; }
 
         public Grid(int amountOfBoxesX, int amountOfBoxesY, int screenSizeX, int screenSizeY)
         {
@@ -62,9 +62,9 @@ namespace PathFindingProject
 
 
 
-        public List<Edge> CreateGrid()
+        public List<Cell> CreateGrid()
         {
-            gridPoints = new List<Edge>();
+            gridPoints = new List<Cell>();
             var sizeX = screenSizeX / amountOfBoxesX;
             var sizeY = screenSizeY / amountOfBoxesY;
 
@@ -72,7 +72,7 @@ namespace PathFindingProject
             {
                 for (int x = 0; x < amountOfBoxesX; x++)
                 {
-                    gridPoints.Add(new Edge(GetRect(sizeY*y, sizeX*x),x ,y ));
+                    gridPoints.Add(new Cell(GetRect(sizeY*y, sizeX*x),x ,y ));
                 }
             }
 

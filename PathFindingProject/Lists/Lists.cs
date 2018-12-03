@@ -8,15 +8,15 @@ namespace PathFindingProject
 {
     class Lists
     {
-        static List<Edge> openList = new List<Edge>();
-        static List<Edge> closedList = new List<Edge>();
-        static List<Edge> blockedList = new List<Edge>();
+        static List<Cell> openList = new List<Cell>();
+        static List<Cell> closedList = new List<Cell>();
+        static List<Cell> blockedList = new List<Cell>();
 
 
 
 
-        public static List<Edge> OpenList { get => openList; set => openList = value; }
-        public static List<Edge> ClosedList { get => closedList; set => closedList = value; }
-        public static List<Edge> BlockedList { get => blockedList; set => blockedList = value; }
+        public static List<Cell> OpenList { get => openList; set => openList = value; }
+        public static List<Cell> ClosedList { get => closedList; set => closedList = value; }
+        public static List<Cell> BlockedList { get => blockedList; set => blockedList = value; }
     }
 }

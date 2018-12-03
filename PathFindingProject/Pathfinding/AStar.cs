@@ -23,6 +23,7 @@ namespace PathFindingProject
             if (started == false)
             {
                 t = new Thread(() => AstarPathfinding(Grid.GridPoints.ElementAt(38)));
+                t.IsBackground = true;
                 t.Start();
 
                 started = true;
@@ -38,7 +39,7 @@ namespace PathFindingProject
         /// <param name="startPoint"></param>
         /// <param name="endPoint"></param>
         /// <returns></returns>
-        public int HeuristicCalculator(Edge startPoint, Edge endPoint)
+        public int HeuristicCalculator(Cell startPoint, Cell endPoint)
         {
             int _return = 2*(Math.Abs(startPoint.X - endPoint.X) + (Math.Abs(startPoint.Y - endPoint.Y)));
             return _return;

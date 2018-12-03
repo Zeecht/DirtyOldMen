@@ -45,7 +45,7 @@
     <Compile Include="Pathfinding\AStar.cs" />
     <Compile Include="Background\BackGround.cs" />
     <Compile Include="Lists\Lists.cs" />
-    <Compile Include="Pathfinding\Edge.cs" />
+    <Compile Include="Pathfinding\Cell.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Pathfinding\Grid.cs" />
     <Compile Include="Interfaces\IObject.cs" />

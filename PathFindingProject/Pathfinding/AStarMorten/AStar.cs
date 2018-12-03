@@ -16,22 +16,22 @@ namespace PathFindingProject
         /// <summary>
         /// Mortens Astar path finding algorythm
         /// </summary>
-        public void AstarPathfinding(Edge endPoint)
+        public void AstarPathfinding(Cell endPoint)
         {
             //Sets the hX(Distance to goal) value on the entire grid 
             SetHValue(endPoint);
             //Adds the startPosition to the openList
             Lists.OpenList.Add(Grid.Check);
             //The edge that is going to be checkeds saved position
-            Edge edgeToBeChecked = null;
+            Cell edgeToBeChecked = null;
 
             while (Lists.OpenList.Count != 0)
             {
                 //Checks for the lowest fX value in the openList
                 //Removes it from the list and sets its value to "edgeToBeChecked"
                 #region
-                Edge lowestFValue = null;
-                foreach (Edge e in Lists.OpenList)
+                Cell lowestFValue = null;
+                foreach (Cell e in Lists.OpenList)
                 {
                     if (lowestFValue == null || e.FX < lowestFValue.FX)
                     {
@@ -64,7 +64,7 @@ namespace PathFindingProject
         }
 
 
-        public void FindNearestEightEdges(Edge checkedEdge)
+        public void FindNearestEightEdges(Cell checkedEdge)
         {
             //Find the index of the value we check
             int index = Grid.GridPoints.IndexOf(checkedEdge);
@@ -461,9 +461,9 @@ namespace PathFindingProject
         /// Sets all H value in the grid list.
         /// </summary>
         /// <param name="endPoint"></param>
-        public void SetHValue(Edge endPoint)
+        public void SetHValue(Cell endPoint)
         {
-            foreach (Edge e in Grid.GridPoints)
+            foreach (Cell e in Grid.GridPoints)
             {
                 e.HX = HeuristicCalculator(e, endPoint);
             }

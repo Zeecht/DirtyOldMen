@@ -23,7 +23,7 @@ namespace PathFindingProject
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             this.Window.AllowUserResizing = true;
-            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferHeight = 800;
             graphics.PreferredBackBufferWidth = 800;
         }
 
