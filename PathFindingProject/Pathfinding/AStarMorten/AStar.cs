@@ -72,7 +72,7 @@ namespace PathFindingProject
             var y = checkedEdge.Y;
 
             //Checks if its at the side of the grid
-            if (checkedEdge.X == 0 || checkedEdge.Y == 0 || checkedEdge.X == 10 || checkedEdge.Y == 10)
+            if (checkedEdge.X == 0 || checkedEdge.Y == 0 || checkedEdge.X == 9 || checkedEdge.Y == 9)
             {
                 if (checkedEdge.X == 0 && checkedEdge.Y == 0)
                 {
@@ -103,7 +103,7 @@ namespace PathFindingProject
                         Lists.OpenList.Add(t);
                     }
                 }
-                else if (checkedEdge.X == 10 && checkedEdge.Y == 0)
+                else if (checkedEdge.X == 9 && checkedEdge.Y == 0)
                 {
                     var t = Grid.GridPoints.ElementAt(index - 1);
                     if (!Lists.OpenList.Contains(t))
@@ -132,7 +132,7 @@ namespace PathFindingProject
                         Lists.OpenList.Add(t);
                     }
                 }
-                else if (checkedEdge.X == 0 && checkedEdge.Y == 10)
+                else if (checkedEdge.X == 0 && checkedEdge.Y == 9)
                 {
                     var t = Grid.GridPoints.ElementAt(index + 1);
                     if (!Lists.OpenList.Contains(t))
@@ -161,7 +161,7 @@ namespace PathFindingProject
                         Lists.OpenList.Add(t);
                     }
                 }
-                else if (checkedEdge.X == 10 && checkedEdge.Y == 10)
+                else if (checkedEdge.X == 9 && checkedEdge.Y == 9)
                 {
                     var t = Grid.GridPoints.ElementAt(index - 1);
                     if (!Lists.OpenList.Contains(t))
@@ -190,7 +190,7 @@ namespace PathFindingProject
                         Lists.OpenList.Add(t);
                     }
                 }
-                if (checkedEdge.X > 0 && checkedEdge.X < 10 || checkedEdge.Y == 0)
+                if (checkedEdge.X > 0 && checkedEdge.X < 9 && checkedEdge.Y == 0)
                 {
                     var t = Grid.GridPoints.ElementAt(index - 1);
                     if (!Lists.OpenList.Contains(t))
@@ -237,7 +237,7 @@ namespace PathFindingProject
                         Lists.OpenList.Add(t);
                     }
                 }
-                else if (checkedEdge.Y > 0 && checkedEdge.Y < 10 || checkedEdge.X == 0)
+                else if (checkedEdge.Y > 0 && checkedEdge.Y < 9 && checkedEdge.X == 0)
                 {
                     var t = Grid.GridPoints.ElementAt(index - 10);
                     if (!Lists.OpenList.Contains(t))
@@ -284,7 +284,7 @@ namespace PathFindingProject
                         Lists.OpenList.Add(t);
                     }
                 }
-                else if (checkedEdge.X > 0 && checkedEdge.X < 10 || checkedEdge.Y == 10)
+                else if (checkedEdge.X > 0 && checkedEdge.X < 9 && checkedEdge.Y == 9)
                 {
                     var t = Grid.GridPoints.ElementAt(index -1);
                     if (!Lists.OpenList.Contains(t))
@@ -304,7 +304,7 @@ namespace PathFindingProject
                         Lists.OpenList.Add(t);
                     }
                     
-                    t = Grid.GridPoints.ElementAt(index +11);
+                    t = Grid.GridPoints.ElementAt(index -9);
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
@@ -322,7 +322,7 @@ namespace PathFindingProject
                         Lists.OpenList.Add(t);
                     }
 
-                    t = Grid.GridPoints.ElementAt(index +10);
+                    t = Grid.GridPoints.ElementAt(index +1);
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
@@ -331,7 +331,7 @@ namespace PathFindingProject
                         Lists.OpenList.Add(t);
                     }
                 }
-                else if (checkedEdge.Y > 10 && checkedEdge.Y < 0 || checkedEdge.X == 10)
+                else if (checkedEdge.Y > 9 && checkedEdge.Y < 0 && checkedEdge.X == 9)
                 {
                     var t = Grid.GridPoints.ElementAt(index - 1);
                     if (!Lists.OpenList.Contains(t))
