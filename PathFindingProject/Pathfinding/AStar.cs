@@ -22,6 +22,7 @@ namespace PathFindingProject
         {
             if (started == false)
             {
+
                 t = new Thread(() => AstarPathfinding(Grid.GridPoints.ElementAt(38)));
                 t.Start();
 

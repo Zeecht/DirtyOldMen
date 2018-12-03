@@ -33,7 +33,7 @@ namespace PathFindingProject
                 Edge lowestFValue = null;
                 foreach (Edge e in Lists.OpenList)
                 {
-                    if (lowestFValue == null || e.FX < lowestFValue.FX)
+                    if (lowestFValue == null || e.FX < lowestFValue.FX && !Lists.BlockedList.Contains(e))
                     {
                         lowestFValue = e;
                     }
