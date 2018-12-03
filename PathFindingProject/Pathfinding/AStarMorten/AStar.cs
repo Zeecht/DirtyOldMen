@@ -56,7 +56,6 @@ namespace PathFindingProject
                 FindNearestEightEdges(edgeToBeChecked);
                 #endregion
 
-
                 Lists.ClosedList.Add(edgeToBeChecked);
                 Grid.Check = edgeToBeChecked;
                 Thread.Sleep(1000);
