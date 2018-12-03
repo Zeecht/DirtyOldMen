@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -11,16 +12,22 @@ namespace PathFindingProject
 {
     partial class AStar
     {
-        
+        bool started=false;
+        Thread t;
 
 
 
-
-        
 
         public void Update(GameTime gameTime)
         {
-            AstarPathfinding(Grid.GridPoints.ElementAt(38));
+            if (started == false)
+            {
+                t = new Thread(() => AstarPathfinding(Grid.GridPoints.ElementAt(38)));
+                t.Start();
+
+                started = true;
+            }
+            
         }
 
 
