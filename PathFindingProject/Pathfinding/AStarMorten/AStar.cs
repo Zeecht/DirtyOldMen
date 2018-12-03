@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PathFindingProject
@@ -58,6 +59,7 @@ namespace PathFindingProject
 
                 Lists.ClosedList.Add(edgeToBeChecked);
                 Grid.Check = edgeToBeChecked;
+                Thread.Sleep(2000);
             }
         }
 
