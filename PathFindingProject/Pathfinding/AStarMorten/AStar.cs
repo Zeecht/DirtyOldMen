@@ -81,7 +81,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -90,7 +90,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -99,7 +99,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -110,7 +110,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -119,7 +119,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -128,7 +128,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -139,7 +139,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -148,7 +148,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -157,7 +157,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -168,7 +168,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -177,7 +177,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -186,7 +186,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -197,7 +197,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -206,7 +206,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -215,7 +215,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -224,7 +224,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -233,7 +233,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -244,7 +244,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -253,7 +253,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -262,7 +262,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -271,7 +271,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -280,7 +280,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -291,7 +291,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -300,7 +300,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -309,7 +309,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -318,7 +318,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -327,7 +327,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -338,7 +338,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -347,7 +347,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + t.Parrent.GX; 
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -356,7 +356,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -365,7 +365,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -374,7 +374,7 @@ namespace PathFindingProject
                     if (!Lists.OpenList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + t.Parrent.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -386,7 +386,7 @@ namespace PathFindingProject
                 if (!Lists.OpenList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
-                    t.GX = 14;
+                    t.GX = 14 + t.Parrent.GX;
                     t.FX = t.GX += t.HX;
                     Lists.OpenList.Add(t);
                 }
@@ -395,7 +395,7 @@ namespace PathFindingProject
                 if (!Lists.OpenList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
-                    t.GX = 10;
+                    t.GX = 10 + t.Parrent.GX;
                     t.FX = t.GX += t.HX;
                     Lists.OpenList.Add(t);
                 }
@@ -404,7 +404,7 @@ namespace PathFindingProject
                 if (!Lists.OpenList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
-                    t.GX = 14;
+                    t.GX = 14 + t.Parrent.GX;
                     t.FX = t.GX += t.HX;
                     Lists.OpenList.Add(t);
                 }
@@ -413,7 +413,7 @@ namespace PathFindingProject
                 if (!Lists.OpenList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
-                    t.GX = 10;
+                    t.GX = 10 + t.Parrent.GX;
                     t.FX = t.GX += t.HX;
                     Lists.OpenList.Add(t);
                 }
@@ -422,7 +422,7 @@ namespace PathFindingProject
                 if (!Lists.OpenList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
-                    t.GX = 10;
+                    t.GX = 10 + t.Parrent.GX;
                     t.FX = t.GX += t.HX;
                     Lists.OpenList.Add(t);
                 }
@@ -431,7 +431,7 @@ namespace PathFindingProject
                 if (!Lists.OpenList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
-                    t.GX = 14;
+                    t.GX = 14 + t.Parrent.GX;
                     t.FX = t.GX += t.HX;
                     Lists.OpenList.Add(t);
                 }
@@ -440,7 +440,7 @@ namespace PathFindingProject
                 if (!Lists.OpenList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
-                    t.GX = 14;
+                    t.GX = 14 + t.Parrent.GX;
                     t.FX = t.GX += t.HX;
                     Lists.OpenList.Add(t);
                 }
@@ -449,7 +449,7 @@ namespace PathFindingProject
                 if (!Lists.OpenList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
-                    t.GX = 14;
+                    t.GX = 14 + t.Parrent.GX;
                     t.FX = t.GX += t.HX;
                     Lists.OpenList.Add(t);
                 }
