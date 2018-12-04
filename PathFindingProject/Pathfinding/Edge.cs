@@ -20,7 +20,7 @@ namespace PathFindingProject
         int hX;
 
 
-        public Edge(Rectangle rect, int x, int y)
+        public Edge(Rectangle rect, int x, int y, Texture2D image)
         {
             this.x = x;
             this.y = y;

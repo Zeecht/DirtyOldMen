@@ -60,3 +60,5 @@ C:\Users\MortenEllegaardHanse\Documents\GitHub\DirtyOldMen\PathFindingProject\ob
 C:\Users\MortenEllegaardHanse\Documents\GitHub\DirtyOldMen\PathFindingProject\obj\x86\Debug\PathFindingProject.csproj.CopyComplete
 C:\Users\MortenEllegaardHanse\Documents\GitHub\DirtyOldMen\PathFindingProject\obj\x86\Debug\PathFindingProject.exe
 C:\Users\MortenEllegaardHanse\Documents\GitHub\DirtyOldMen\PathFindingProject\obj\x86\Debug\PathFindingProject.pdb
+C:\Users\MortenEllegaardHanse\Documents\GitHub\DirtyOldMen\PathFindingProject\bin\Windows\x86\Debug\Content\Key.xnb
+C:\Users\MortenEllegaardHanse\Documents\GitHub\DirtyOldMen\PathFindingProject\bin\Windows\x86\Debug\Content\Sten.xnb
