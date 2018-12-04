@@ -74,7 +74,7 @@ namespace PathFindingProject
         /// <returns></returns>
         public int HeuristicCalculator(Cell startPoint, Cell endPoint)
         {
-            int _return = 2*(Math.Abs(startPoint.X - endPoint.X) + (Math.Abs(startPoint.Y - endPoint.Y)));
+            int _return = (Math.Abs(startPoint.Rect.X - endPoint.Rect.X) + (Math.Abs(startPoint.Rect.Y - endPoint.Rect.Y)));
             return _return;
         }
     }
