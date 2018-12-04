@@ -16,9 +16,7 @@ namespace PathFindingProject
         Thread t;
 
 
-
-
-        public void Update(GameTime gameTime)
+        public void runPathfinder1()
         {
             if (started == false)
             {
@@ -29,6 +27,32 @@ namespace PathFindingProject
 
                 started = true;
             }
+        }
+
+        public void RunPathFinder2()
+        {
+            if (started == false)
+            {
+                BlockedBlocks();
+                t = new Thread(() => GetRoute(Grid.GridPoints.ElementAt(38)));
+                t.IsBackground = true;
+                t.Start();
+
+                started = true;
+            }
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            //if (started == false)
+            //{
+            //    BlockedBlocks();
+            //    t = new Thread(() => AstarPathfinding(Grid.GridPoints.ElementAt(38)));
+            //    t.IsBackground = true;
+            //    t.Start();
+
+            //    started = true;
+            //}
             
         }
 

@@ -45,6 +45,7 @@
     <Compile Include="Pathfinding\AStar.cs" />
     <Compile Include="Background\BackGround.cs" />
     <Compile Include="Lists\Lists.cs" />
+    <Compile Include="Pathfinding\AstarMUUKe\noStar.cs" />
     <Compile Include="Pathfinding\Cell.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Pathfinding\Grid.cs" />

@@ -35,5 +35,10 @@ namespace PathFindingProject
         public int FX { get => fX; set => fX = value; }
         public int GX { get => gX; set => gX = value; }
         public int HX { get => hX; set => hX = value; }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+
+        }
     }
 }

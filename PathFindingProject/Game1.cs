@@ -23,7 +23,7 @@ namespace PathFindingProject
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             this.Window.AllowUserResizing = true;
-            graphics.PreferredBackBufferHeight = 800;
+            graphics.PreferredBackBufferHeight = 600;
             graphics.PreferredBackBufferWidth = 800;
         }
 
@@ -98,7 +98,14 @@ namespace PathFindingProject
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            if (Keyboard.GetState().IsKeyDown(Keys.D1))
+            {
+                aStar.runPathfinder1();   
+            }
+            else if (Keyboard.GetState().IsKeyDown(Keys.D2))
+            {
+                aStar.RunPathFinder2();
+            }
             // TODO: Add your update logic here
             backGround.Update(gameTime);
             grid.Update(gameTime);
