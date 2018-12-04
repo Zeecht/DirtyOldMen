@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PathFindingProject
 {
-    class Key : Objects
+    class Key : Object
     {
 
 
@@ -35,7 +35,7 @@ namespace PathFindingProject
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            foreach (Edge e in Lists.BlockedList)
+            foreach (Cell e in Lists.BlockedList)
             {
                 spriteBatch.Draw(image, e.Rect, Color.White);
             }

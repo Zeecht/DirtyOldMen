@@ -79,7 +79,7 @@ namespace PathFindingProject
             {
                 for (int x = 0; x < amountOfBoxesX; x++)
                 {
-                    gridPoints.Add(new Cell(GetRect(sizeY*y, sizeX*x),x ,y ));
+                    gridPoints.Add(new Cell(GetRect(sizeY*y, sizeX*x),x ,y,""));
                 }
             }
 

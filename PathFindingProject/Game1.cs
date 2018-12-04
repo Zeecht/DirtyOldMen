@@ -16,7 +16,7 @@ namespace PathFindingProject
         BackGround backGround;
         Grid grid;
         AStar aStar;
-        Objects objects;
+        Object objects;
         Wizard wizard;
 
         public Game1()
@@ -41,7 +41,7 @@ namespace PathFindingProject
             backGround = new BackGround();
             grid = new Grid(10, 10, graphics.PreferredBackBufferWidth,graphics.PreferredBackBufferHeight);
             aStar = new AStar();
-            objects = new Objects();
+            //objects = new Object();
             wizard = new Wizard();
 
             ///<summary>
@@ -74,7 +74,7 @@ namespace PathFindingProject
             backGround.LoadContent(Content);
             grid.LoadContent(Content);
 
-            objects.LoadContent(Content);
+            //objects.LoadContent(Content);
 
             wizard.LoadContent(Content);
             // TODO: use this.Content to load your game content here
@@ -111,7 +111,7 @@ namespace PathFindingProject
             grid.Update(gameTime);
             aStar.Update(gameTime);
 
-            objects.Update(gameTime);
+            //objects.Update(gameTime);
             wizard.Update(gameTime);
             base.Update(gameTime);
         }
@@ -128,7 +128,7 @@ namespace PathFindingProject
             spriteBatch.Begin();
             backGround.Draw(spriteBatch);
             grid.Draw(spriteBatch);
-            objects.Draw(spriteBatch);
+            //objects.Draw(spriteBatch);
             wizard.Draw(spriteBatch);
 
             spriteBatch.End();

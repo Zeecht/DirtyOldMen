@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PathFindingProject
 {
-    class Treehouse : Objects
+    class Treehouse : Object
     {
         Texture2D image;
         Rectangle rect;

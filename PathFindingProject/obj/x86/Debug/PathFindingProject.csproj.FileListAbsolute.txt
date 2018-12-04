@@ -91,3 +91,5 @@ C:\Users\MIKZU\Source\Repos\DirtyOldMen\PathFindingProject\obj\x86\Debug\PathFin
 C:\Users\MIKZU\Source\Repos\DirtyOldMen\PathFindingProject\obj\x86\Debug\PathFindingProject.csproj.CopyComplete
 C:\Users\MIKZU\Source\Repos\DirtyOldMen\PathFindingProject\obj\x86\Debug\PathFindingProject.exe
 C:\Users\MIKZU\Source\Repos\DirtyOldMen\PathFindingProject\obj\x86\Debug\PathFindingProject.pdb
+C:\Users\MIKZU\Source\Repos\DirtyOldMen\PathFindingProject\bin\Windows\x86\Debug\Content\Key.xnb
+C:\Users\MIKZU\Source\Repos\DirtyOldMen\PathFindingProject\bin\Windows\x86\Debug\Content\Sten.xnb
