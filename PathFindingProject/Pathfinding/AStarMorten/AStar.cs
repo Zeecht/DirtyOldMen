@@ -33,7 +33,7 @@ namespace PathFindingProject
                 Cell lowestFValue = null;
                 foreach (Cell e in Lists.OpenList)
                 {
-                    if (lowestFValue == null || e.FX < lowestFValue.FX)
+                    if (lowestFValue == null || e.FX < lowestFValue.FX && !Lists.BlockedList.Contains(e))
                     {
                         lowestFValue = e;
                     }
@@ -56,10 +56,9 @@ namespace PathFindingProject
                 FindNearestEightEdges(edgeToBeChecked);
                 #endregion
 
-
                 Lists.ClosedList.Add(edgeToBeChecked);
                 Grid.Check = edgeToBeChecked;
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
             }
         }
 

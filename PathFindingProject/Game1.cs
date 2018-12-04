@@ -45,7 +45,7 @@ namespace PathFindingProject
             ///Objects are created
             /// </summary>
             Wizard wizard = new Wizard();
-
+            Tree tree = new Tree();
 
 
 
@@ -54,7 +54,7 @@ namespace PathFindingProject
             ///Objects list adding
             /// </summary>
             list.Add(wizard);
-
+            list.Add(tree);
 
 
 
