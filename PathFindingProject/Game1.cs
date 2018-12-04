@@ -16,7 +16,7 @@ namespace PathFindingProject
         BackGround backGround;
         Grid grid;
         AStar aStar;
-        Object objects;
+        Objects objects;
         Wizard wizard;
 
         public Game1()
@@ -41,7 +41,7 @@ namespace PathFindingProject
             backGround = new BackGround();
             grid = new Grid(10, 10, graphics.PreferredBackBufferWidth,graphics.PreferredBackBufferHeight);
             aStar = new AStar();
-            //objects = new Object();
+            objects = new Objects();
             wizard = new Wizard();
 
             ///<summary>

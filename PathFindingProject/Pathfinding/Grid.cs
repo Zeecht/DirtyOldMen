@@ -53,17 +53,17 @@ namespace PathFindingProject
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (var i in gridPoints)
-            {
-                if (i.Image.Name == "Grid")
-                {
-                    spriteBatch.Draw(i.Image, i.Rect, Color.Transparent);
-                }
-                else
-                {
-                    spriteBatch.Draw(i.Image, i.Rect, Color.White);
-                }
-            }
+            //foreach (var i in gridPoints)
+            //{
+            //    if (i.Image.Name == "Grid")
+            //    {
+            //        spriteBatch.Draw(i.Image, i.Rect, Color.Transparent);
+            //    }
+            //    else
+            //    {
+            //        spriteBatch.Draw(i.Image, i.Rect, Color.White);
+            //    }
+            //}
             
         }
 

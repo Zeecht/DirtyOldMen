@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PathFindingProject
 {
-    abstract class Object : IObject
+    class Objects : IObject
     {
         string[] lines = File.ReadAllLines("MapGenerator.txt");
         List<string> c = new List<string>();

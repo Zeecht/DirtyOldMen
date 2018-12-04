@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PathFindingProject
 {
-    class Tree : Object
+    class Tree : Objects
     {
 
         Texture2D image;
