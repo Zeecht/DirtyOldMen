@@ -20,11 +20,12 @@ namespace PathFindingProject
         int hX;
 
 
-        public Cell(Rectangle rect, int x, int y, string textureString)
+        public Cell(Rectangle rect, int x, int y, Texture2D image)
         {
             this.x = x;
             this.y = y;
             this.Rect = rect;
+            this.image = image;
         }
 
         public Rectangle Rect { get => rect; set => rect = value; }
