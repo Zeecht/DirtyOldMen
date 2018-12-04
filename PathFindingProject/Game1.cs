@@ -13,10 +13,11 @@ namespace PathFindingProject
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        List<Object> list = new List<Object>();
         BackGround backGround;
         Grid grid;
         AStar aStar;
+        Objects objects;
+        Wizard wizard;
 
         public Game1()
         {
@@ -40,12 +41,13 @@ namespace PathFindingProject
             backGround = new BackGround();
             grid = new Grid(10, 10, graphics.PreferredBackBufferWidth,graphics.PreferredBackBufferHeight);
             aStar = new AStar();
+            objects = new Objects();
+            wizard = new Wizard();
 
             ///<summary>
             ///Objects are created
             /// </summary>
-            Wizard wizard = new Wizard();
-            Tree tree = new Tree();
+
 
 
 
@@ -53,8 +55,7 @@ namespace PathFindingProject
             ///<summary>
             ///Objects list adding
             /// </summary>
-            list.Add(wizard);
-            list.Add(tree);
+
 
 
 
@@ -72,11 +73,10 @@ namespace PathFindingProject
             spriteBatch = new SpriteBatch(GraphicsDevice);
             backGround.LoadContent(Content);
             grid.LoadContent(Content);
-            foreach (Object i in list)
-            {
-                i.LoadContent(Content);
-            }
 
+            objects.LoadContent(Content);
+
+            wizard.LoadContent(Content);
             // TODO: use this.Content to load your game content here
         }
 
@@ -110,11 +110,9 @@ namespace PathFindingProject
             backGround.Update(gameTime);
             grid.Update(gameTime);
             aStar.Update(gameTime);
-            foreach (var i in list)
-            {
-                i.Update(gameTime);
-            }
 
+            objects.Update(gameTime);
+            wizard.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -130,11 +128,11 @@ namespace PathFindingProject
             spriteBatch.Begin();
             backGround.Draw(spriteBatch);
             grid.Draw(spriteBatch);
-            foreach (var i in list)
-            {
-                i.Draw(spriteBatch);
-            }
+            objects.Draw(spriteBatch);
+            wizard.Draw(spriteBatch);
+
             spriteBatch.End();
+
             base.Draw(gameTime);
         }
     }

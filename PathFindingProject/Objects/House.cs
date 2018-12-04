@@ -9,16 +9,15 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PathFindingProject
 {
-    class Tree : Object
+    class House : Objects
     {
-
         Texture2D image;
         Rectangle rect;
 
 
         public override void LoadContent(ContentManager content)
         {
-            
+            image = content.Load<Texture2D>("House");
             rect = new Rectangle(0, 500, 120, 90);
         }
 
@@ -29,16 +28,16 @@ namespace PathFindingProject
 
         public override void Update(GameTime gameTime)
         {
-            
+
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            foreach (Cell e in Lists.BlockedList)
+            foreach (Edge e in Lists.BlockedList)
             {
                 spriteBatch.Draw(image, e.Rect, Color.White);
             }
-            
+
         }
     }
 }

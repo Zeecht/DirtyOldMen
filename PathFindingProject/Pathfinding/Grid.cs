@@ -36,7 +36,7 @@ namespace PathFindingProject
 
         public void LoadContent(ContentManager content)
         {
-            image = content.Load<Texture2D>("Grid");
+
             CreateGrid();
             Check = gridPoints.ElementAt(90);
         }
@@ -55,7 +55,14 @@ namespace PathFindingProject
         {
             foreach (var i in gridPoints)
             {
-                spriteBatch.Draw(image, i.Rect, Color.Transparent);
+                if (i.Image.Name == "Grid")
+                {
+                    spriteBatch.Draw(i.Image, i.Rect, Color.Transparent);
+                }
+                else
+                {
+                    spriteBatch.Draw(i.Image, i.Rect, Color.White);
+                }
             }
             
         }
