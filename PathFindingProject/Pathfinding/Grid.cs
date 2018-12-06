@@ -15,6 +15,7 @@ namespace PathFindingProject
         Rectangle rect;
         static List<Edge> gridPoints;
 
+
         int amountOfBoxesX;
         int amountOfBoxesY;
 
@@ -75,12 +76,15 @@ namespace PathFindingProject
             gridPoints = new List<Edge>();
             var sizeX = screenSizeX / amountOfBoxesX;
             var sizeY = screenSizeY / amountOfBoxesY;
+            int dsfID = 0;
 
             for (int y = 0; y < amountOfBoxesY; y++)
             {
                 for (int x = 0; x < amountOfBoxesX; x++)
                 {
                     gridPoints.Add(new Edge(GetRect(sizeY*y, sizeX*x),x ,y ,image));
+                    AStar.graph.AddNode(new Nodes(dsfID, GetRect(sizeY * y, sizeX * x)));
+                    dsfID++;
                 }
             }
 

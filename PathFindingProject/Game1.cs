@@ -106,6 +106,7 @@ namespace PathFindingProject
 
             objects.Update(gameTime);
             wizard.Update(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -124,6 +125,7 @@ namespace PathFindingProject
             objects.Draw(spriteBatch);
             wizard.Draw(spriteBatch);
 
+            
             spriteBatch.End();
 
             base.Draw(gameTime);

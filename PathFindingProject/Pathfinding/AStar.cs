@@ -15,25 +15,45 @@ namespace PathFindingProject
     {
         bool started=false;
         Thread t;
-        int counter= 0;
+        int counterAstar= 0;
+        int counterDFS = 0;
 
 
         public void Update(GameTime gameTime)
         {
             var k = Keyboard.GetState();
+            AStarStarter(k);
+            DFSStarter(k);
+        }
+
+
+        public void AStarStarter(KeyboardState k)
+        {
             //Starts AstarAlgorythm
-            if (k.IsKeyDown(Keys.F1) && started==false)
+            if (k.IsKeyDown(Keys.F1) && started == false)
             {
-                if (counter == 0)
+                if (counterAstar == 0)
                 {
                     started = true;
                     t = new Thread(() => AstarPathfinding(Grid.GridPoints.ElementAt(88)));
                     t.Start();
-                    counter++;
-                    Start();
+                    counterAstar++;
                 }
             }
-            
+        }
+
+        public void DFSStarter(KeyboardState k)
+        {
+            if (k.IsKeyDown(Keys.F2) && started == false)
+            {
+                if (counterDFS == 0)
+                {
+                    started = true;
+                    t = new Thread(() => Start(Grid.GridPoints.ElementAt(88)));
+                    t.Start();
+                    counterDFS++;
+                }
+            }
         }
 
         /// <summary>

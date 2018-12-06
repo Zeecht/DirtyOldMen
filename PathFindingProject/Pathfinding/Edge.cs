@@ -18,6 +18,8 @@ namespace PathFindingProject
         int fX;
         int gX;
         int hX;
+        Edge myPosition;
+        Edge endDestination;
 
 
         public Edge(Rectangle rect, int x, int y, Texture2D image)
@@ -35,5 +37,7 @@ namespace PathFindingProject
         public int FX { get => fX; set => fX = value; }
         public int GX { get => gX; set => gX = value; }
         public int HX { get => hX; set => hX = value; }
+        public Edge MyPosition { get => myPosition; set => myPosition = value; }
+        public Edge EndDestination { get => endDestination; set => endDestination = value; }
     }
 }

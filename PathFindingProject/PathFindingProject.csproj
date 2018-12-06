@@ -41,6 +41,9 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Pathfinding\DFSAlgorythm\Edges.cs" />
+    <Compile Include="Pathfinding\DFSAlgorythm\Graph.cs" />
+    <Compile Include="Pathfinding\DFSAlgorythm\Nodes.cs" />
     <Compile Include="Pathfinding\DFSAlgorythm\AStar.cs" />
     <Compile Include="Pathfinding\AStarAlgorythm\AStar.cs" />
     <Compile Include="Pathfinding\AStar.cs" />
