@@ -50,6 +50,13 @@ namespace PathFindingProject
                 else if (l == 4)
                 {
                     image = content.Load<Texture2D>("Sten");
+                    Lists.BlockedList.Add(e);
+                }
+                else if (l == 5)
+                {
+                    image = content.Load<Texture2D>("Tree");
+                    Lists.BlockedList.Add(e);
+                    
                 }
                 else
                 {

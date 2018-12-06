@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace PathFindingProject
 {
@@ -14,32 +15,26 @@ namespace PathFindingProject
     {
         bool started=false;
         Thread t;
-
-
+        int counter= 0;
 
 
         public void Update(GameTime gameTime)
         {
-            if (started == false)
+            var k = Keyboard.GetState();
+            //Starts AstarAlgorythm
+            if (k.IsKeyDown(Keys.F1) && started==false)
             {
-                BlockedBlocks();
-                t = new Thread(() => AstarPathfinding(Grid.GridPoints.ElementAt(38)));
-                t.Start();
-
-                started = true;
+                if (counter == 0)
+                {
+                    started = true;
+                    t = new Thread(() => AstarPathfinding(Grid.GridPoints.ElementAt(88)));
+                    t.Start();
+                    counter++;
+                    Start();
+                }
             }
             
         }
-
-        public void BlockedBlocks()
-        {
-            for (int i = 24; i <= 94; i+=10)
-            {
-                Lists.BlockedList.Add(Grid.GridPoints.ElementAt(i));
-            }
-        }
-
-
 
         /// <summary>
         /// Returns the Hx number
@@ -49,8 +44,14 @@ namespace PathFindingProject
         /// <returns></returns>
         public int HeuristicCalculator(Edge startPoint, Edge endPoint)
         {
-            int _return = 2*(Math.Abs(startPoint.X - endPoint.X) + (Math.Abs(startPoint.Y - endPoint.Y)));
+            int _return = (Math.Abs(startPoint.Rect.X - endPoint.Rect.X) + (Math.Abs(startPoint.Rect.Y - endPoint.Rect.Y)));
             return _return;
+
+
+            int dx = Math.Abs(startPoint.X - endPoint.X);
+            int dy = Math.Abs(startPoint.Y - endPoint.Y);
+            int D = (int)Math.Sqrt(dx * dx + dy * dy);
+            return D*2;
         }
     }
 }

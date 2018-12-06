@@ -41,9 +41,8 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Objects\House.cs" />
-    <Compile Include="Objects\Key.cs" />
-    <Compile Include="Pathfinding\AStarMorten\AStar.cs" />
+    <Compile Include="Pathfinding\DFSAlgorythm\AStar.cs" />
+    <Compile Include="Pathfinding\AStarAlgorythm\AStar.cs" />
     <Compile Include="Pathfinding\AStar.cs" />
     <Compile Include="Background\BackGround.cs" />
     <Compile Include="Lists\Lists.cs" />
@@ -55,9 +54,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Objects\Wizard.cs" />
-    <Compile Include="Objects\Tree.cs" />
-    <Compile Include="Objects\Stone.cs" />
-    <Compile Include="Objects\Treehouse.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

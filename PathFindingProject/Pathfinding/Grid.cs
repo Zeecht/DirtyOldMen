@@ -38,7 +38,8 @@ namespace PathFindingProject
         {
 
             CreateGrid();
-            Check = gridPoints.ElementAt(90);
+            //StartPunkt
+            Check = gridPoints.ElementAt(82);
         }
 
         public void UnloadContent()

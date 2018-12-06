@@ -1,0 +1,126 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PathFindingProject
+{
+    partial class AStar
+    {
+        //Mortens DFS Algoritme
+
+        List<Tuple<Edge, Edge>> graph;
+        public void Start()
+        {
+            SetData();
+            IEnumerable<Edge> data = Grid.GridPoints;
+
+            var g = new Graph<Edge>(data,graph);
+            DFS<Edge>(g, Grid.GridPoints.ElementAt(90));
+        }
+        
+        public HashSet<T> DFS<T>(Graph<T> graph, T start)
+        {
+            var visited = new HashSet<T>();
+
+            if (!graph.AdjacencyList.ContainsKey(start))
+                return visited;
+
+            var stack = new Stack<T>();
+            stack.Push(start);
+
+            while (stack.Count > 0)
+            {
+                var vertex = stack.Pop();
+
+                if (visited.Contains(vertex))
+                    continue;
+                
+                visited.Add(vertex);
+
+                foreach (var neighbor in graph.AdjacencyList[vertex])
+                    if (!visited.Contains(neighbor))
+                        stack.Push(neighbor);
+            }
+
+            return visited;
+        }
+
+
+
+
+        public class Graph<T>
+        {
+            public Graph() { }
+            public Graph(IEnumerable<T> vertices, IEnumerable<Tuple<T, T>> edges)
+            {
+                foreach (var vertex in vertices)
+                    AddVertex(vertex);
+
+                foreach (var edge in edges)
+                    AddEdge(edge);
+            }
+
+            public Dictionary<T, HashSet<T>> AdjacencyList { get; } = new Dictionary<T, HashSet<T>>();
+
+            public void AddVertex(T vertex)
+            {
+                AdjacencyList[vertex] = new HashSet<T>();
+            }
+
+            public void AddEdge(Tuple<T, T> edge)
+            {
+                if (AdjacencyList.ContainsKey(edge.Item1) && AdjacencyList.ContainsKey(edge.Item2))
+                {
+                    AdjacencyList[edge.Item1].Add(edge.Item2);
+                    AdjacencyList[edge.Item2].Add(edge.Item1);
+                }
+            }
+        }
+
+
+        public void SetData()
+        {
+            graph = new List<Tuple<Edge, Edge>>();
+            
+            for (int i = 12; i < Grid.GridPoints.Count()-14; i++)
+            {
+                
+                if (Grid.GridPoints.Contains(Grid.GridPoints.ElementAt(i - 1)) && !Lists.BlockedList.Contains(Grid.GridPoints.ElementAt(i - 1))) 
+                {
+                    graph.Add(Tuple.Create<Edge, Edge>(Grid.GridPoints.ElementAt(i), Grid.GridPoints.ElementAt(i - 1)));
+                }
+                if (Grid.GridPoints.Contains(Grid.GridPoints.ElementAt(i - 11)) && !Lists.BlockedList.Contains(Grid.GridPoints.ElementAt(i - 11)))
+                {
+                    graph.Add(Tuple.Create<Edge, Edge>(Grid.GridPoints.ElementAt(i), Grid.GridPoints.ElementAt(i - 11)));
+                }
+                if (Grid.GridPoints.Contains(Grid.GridPoints.ElementAt(i - 10)) && !Lists.BlockedList.Contains(Grid.GridPoints.ElementAt(i - 10)))
+                {
+                     graph.Add(Tuple.Create<Edge, Edge>(Grid.GridPoints.ElementAt(i), Grid.GridPoints.ElementAt(i - 10)));
+                }
+                if (Grid.GridPoints.Contains(Grid.GridPoints.ElementAt(i - 9)) && !Lists.BlockedList.Contains(Grid.GridPoints.ElementAt(i - 9)))
+                {
+                    graph.Add(Tuple.Create<Edge, Edge>(Grid.GridPoints.ElementAt(i), Grid.GridPoints.ElementAt(i - 9)));
+                }
+                if (Grid.GridPoints.Contains(Grid.GridPoints.ElementAt(i + 1)) && !Lists.BlockedList.Contains(Grid.GridPoints.ElementAt(i + 1)))
+                {
+                    graph.Add(Tuple.Create<Edge, Edge>(Grid.GridPoints.ElementAt(i), Grid.GridPoints.ElementAt(i + 1)));
+                }
+                if (Grid.GridPoints.Contains(Grid.GridPoints.ElementAt(i + 11)) && !Lists.BlockedList.Contains(Grid.GridPoints.ElementAt(i + 11)))
+                {
+                    graph.Add(Tuple.Create<Edge, Edge>(Grid.GridPoints.ElementAt(i), Grid.GridPoints.ElementAt(i + 11)));
+                }
+                if (Grid.GridPoints.Contains(Grid.GridPoints.ElementAt(i + 10)) && !Lists.BlockedList.Contains(Grid.GridPoints.ElementAt(i + 10)))
+                {
+                    graph.Add(Tuple.Create<Edge, Edge>(Grid.GridPoints.ElementAt(i), Grid.GridPoints.ElementAt(i + 10)));
+                }
+                if (Grid.GridPoints.Contains(Grid.GridPoints.ElementAt(i + 9)) && !Lists.BlockedList.Contains(Grid.GridPoints.ElementAt(i + 9)))
+                {
+                    graph.Add(Tuple.Create<Edge, Edge>(Grid.GridPoints.ElementAt(i), Grid.GridPoints.ElementAt(i + 9)));
+                }
+            }
+        }
+        
+    }
+}

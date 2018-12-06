@@ -9,57 +9,54 @@ namespace PathFindingProject
 {
     partial class AStar
     {
-        int gridLengthX = 10;
-        int gridLengthY = 10;
-
-
+        
         /// <summary>
         /// Mortens Astar path finding algorythm
         /// </summary>
         public void AstarPathfinding(Edge endPoint)
         {
-            //Sets the hX(Distance to goal) value on the entire grid 
-            SetHValue(endPoint);
-            //Adds the startPosition to the openList
-            Lists.OpenList.Add(Grid.Check);
-            //The edge that is going to be checkeds saved position
-            Edge edgeToBeChecked = null;
-
-            while (Lists.OpenList.Count != 0)
-            {
-                //Checks for the lowest fX value in the openList
-                //Removes it from the list and sets its value to "edgeToBeChecked"
-                #region
-                Edge lowestFValue = null;
-                foreach (Edge e in Lists.OpenList)
+                //Sets the hX(Distance to goal) value on the entire grid 
+                SetHValue(endPoint);
+                //Adds the startPosition to the openList
+                Lists.OpenList.Add(Grid.Check);
+                //The edge that is going to be checkeds saved position
+                Edge edgeToBeChecked = null;
+            
+                while (Lists.OpenList.Count != 0)
                 {
-                    if (lowestFValue == null || e.FX < lowestFValue.FX && !Lists.BlockedList.Contains(e))
+                    //Checks for the lowest fX value in the openList
+                    //Removes it from the list and sets its value to "edgeToBeChecked"
+                    #region
+                    Edge lowestFValue = null;
+                    foreach (Edge e in Lists.OpenList)
                     {
-                        lowestFValue = e;
+                        if (lowestFValue == null || e.FX < lowestFValue.FX && !Lists.BlockedList.Contains(e))
+                        {
+                            lowestFValue = e;
+                        }
                     }
+                    Lists.OpenList.Clear();
+                    lowestFValue.Parrent = edgeToBeChecked;
+                    edgeToBeChecked = lowestFValue;
+                    Grid.Check = edgeToBeChecked;
+                    #endregion
+                    //Checks if the endpoint has bin reached
+                    if (endPoint == lowestFValue)
+                    {
+                        break;
+                    }
+
+                    //Calls the method that finds the nearest 8 edges of the checked edge,
+                    //and sets their parent, gX and fX
+                    #region
+                    FindNearestEightEdges(edgeToBeChecked);
+                    #endregion
+
+                    Lists.ClosedList.Add(edgeToBeChecked);
+                    
+                    Thread.Sleep(500);
                 }
-                Lists.OpenList.Remove(lowestFValue);
-                edgeToBeChecked = lowestFValue;
-                #endregion
-
-                //Checks if the endpoint has bin reached
-                #region
-                if (edgeToBeChecked == endPoint)
-                {
-                    break;
-                }
-                #endregion
-
-                //Calls the method that finds the nearest 8 edges of the checked edge,
-                //and sets their parent, gX and fX
-                #region
-                FindNearestEightEdges(edgeToBeChecked);
-                #endregion
-
-                Lists.ClosedList.Add(edgeToBeChecked);
-                Grid.Check = edgeToBeChecked;
-                Thread.Sleep(1000);
-            }
+            started = false;
         }
 
 
@@ -71,6 +68,7 @@ namespace PathFindingProject
             var x = checkedEdge.X;
             //y value of the edge we are checking
             var y = checkedEdge.Y;
+            
 
             //Checks if its at the side of the grid
             if (checkedEdge.X == 0 || checkedEdge.Y == 0 || checkedEdge.X == 9 || checkedEdge.Y == 9)
@@ -78,28 +76,28 @@ namespace PathFindingProject
                 if (checkedEdge.X == 0 && checkedEdge.Y == 0)
                 {
                     var t = Grid.GridPoints.ElementAt(index + 1);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
-                    
+
                     t = Grid.GridPoints.ElementAt(index + 10);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
-                    
+
                     t = Grid.GridPoints.ElementAt(index + 11);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -107,28 +105,28 @@ namespace PathFindingProject
                 else if (checkedEdge.X == 9 && checkedEdge.Y == 0)
                 {
                     var t = Grid.GridPoints.ElementAt(index - 1);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
 
                     t = Grid.GridPoints.ElementAt(index + 10);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
 
                     t = Grid.GridPoints.ElementAt(index + 9);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -136,28 +134,28 @@ namespace PathFindingProject
                 else if (checkedEdge.X == 0 && checkedEdge.Y == 9)
                 {
                     var t = Grid.GridPoints.ElementAt(index + 1);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
 
                     t = Grid.GridPoints.ElementAt(index - 10);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
 
                     t = Grid.GridPoints.ElementAt(index - 9);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -165,28 +163,28 @@ namespace PathFindingProject
                 else if (checkedEdge.X == 9 && checkedEdge.Y == 9)
                 {
                     var t = Grid.GridPoints.ElementAt(index - 1);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
-                    
+
                     t = Grid.GridPoints.ElementAt(index - 10);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
 
                     t = Grid.GridPoints.ElementAt(index - 11);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -194,46 +192,46 @@ namespace PathFindingProject
                 if (checkedEdge.X > 0 && checkedEdge.X < 9 && checkedEdge.Y == 0)
                 {
                     var t = Grid.GridPoints.ElementAt(index - 1);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
 
                     t = Grid.GridPoints.ElementAt(index + 1);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
 
                     t = Grid.GridPoints.ElementAt(index + 10);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
-                    
+
                     t = Grid.GridPoints.ElementAt(index + 9);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
-                    
+
                     t = Grid.GridPoints.ElementAt(index + 11);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -241,93 +239,93 @@ namespace PathFindingProject
                 else if (checkedEdge.Y > 0 && checkedEdge.Y < 9 && checkedEdge.X == 0)
                 {
                     var t = Grid.GridPoints.ElementAt(index - 10);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
-                    
-                    t = Grid.GridPoints.ElementAt(index -9);
-                    if (!Lists.OpenList.Contains(t))
+
+                    t = Grid.GridPoints.ElementAt(index - 9);
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
-                    
+
                     t = Grid.GridPoints.ElementAt(index + 1);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
-                    
+
                     t = Grid.GridPoints.ElementAt(index + 11);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
-                    
+
                     t = Grid.GridPoints.ElementAt(index + 10);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
                 }
                 else if (checkedEdge.X > 0 && checkedEdge.X < 9 && checkedEdge.Y == 9)
                 {
-                    var t = Grid.GridPoints.ElementAt(index -1);
-                    if (!Lists.OpenList.Contains(t))
+                    var t = Grid.GridPoints.ElementAt(index - 1);
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
 
-                    t = Grid.GridPoints.ElementAt(index -11);
-                    if (!Lists.OpenList.Contains(t))
+                    t = Grid.GridPoints.ElementAt(index - 11);
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
-                        t.FX = t.GX += t.HX;
-                        Lists.OpenList.Add(t);
-                    }
-                    
-                    t = Grid.GridPoints.ElementAt(index -9);
-                    if (!Lists.OpenList.Contains(t))
-                    {
-                        t.Parrent = checkedEdge;
-                        t.GX = 14;
-                        t.FX = t.GX += t.HX;
-                        Lists.OpenList.Add(t);
-                    }
-                    
-                    t = Grid.GridPoints.ElementAt(index -10);
-                    if (!Lists.OpenList.Contains(t))
-                    {
-                        t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 14 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
 
-                    t = Grid.GridPoints.ElementAt(index +1);
-                    if (!Lists.OpenList.Contains(t))
+                    t = Grid.GridPoints.ElementAt(index - 9);
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 14 + checkedEdge.GX;
+                        t.FX = t.GX += t.HX;
+                        Lists.OpenList.Add(t);
+                    }
+
+                    t = Grid.GridPoints.ElementAt(index - 10);
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
+                    {
+                        t.Parrent = checkedEdge;
+                        t.GX = 10 + checkedEdge.GX;
+                        t.FX = t.GX += t.HX;
+                        Lists.OpenList.Add(t);
+                    }
+
+                    t = Grid.GridPoints.ElementAt(index + 1);
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
+                    {
+                        t.Parrent = checkedEdge;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -335,46 +333,46 @@ namespace PathFindingProject
                 else if (checkedEdge.Y > 9 && checkedEdge.Y < 0 && checkedEdge.X == 9)
                 {
                     var t = Grid.GridPoints.ElementAt(index - 1);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
 
                     t = Grid.GridPoints.ElementAt(index - 11);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
-                    
+
                     t = Grid.GridPoints.ElementAt(index - 10);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
 
                     t = Grid.GridPoints.ElementAt(index - 9);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 14;
+                        t.GX = 14 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
 
                     t = Grid.GridPoints.ElementAt(index + 1);
-                    if (!Lists.OpenList.Contains(t))
+                    if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                     {
                         t.Parrent = checkedEdge;
-                        t.GX = 10;
+                        t.GX = 10 + checkedEdge.GX;
                         t.FX = t.GX += t.HX;
                         Lists.OpenList.Add(t);
                     }
@@ -383,73 +381,73 @@ namespace PathFindingProject
             else
             {
                 var t = Grid.GridPoints.ElementAt(index - 11);
-                if (!Lists.OpenList.Contains(t))
+                if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
-                    t.GX = 14;
+                    t.GX = 14 + checkedEdge.GX;
                     t.FX = t.GX += t.HX;
                     Lists.OpenList.Add(t);
                 }
 
                 t = Grid.GridPoints.ElementAt(index - 10);
-                if (!Lists.OpenList.Contains(t))
+                if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
-                    t.GX = 10;
+                    t.GX = 10 + checkedEdge.GX;
                     t.FX = t.GX += t.HX;
                     Lists.OpenList.Add(t);
                 }
 
                 t = Grid.GridPoints.ElementAt(index - 9);
-                if (!Lists.OpenList.Contains(t))
+                if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
-                    t.GX = 14;
+                    t.GX = 14 + checkedEdge.GX;
                     t.FX = t.GX += t.HX;
                     Lists.OpenList.Add(t);
                 }
 
                 t = Grid.GridPoints.ElementAt(index + 1);
-                if (!Lists.OpenList.Contains(t))
+                if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
-                    t.GX = 10;
+                    t.GX = 10 + checkedEdge.GX;
                     t.FX = t.GX += t.HX;
                     Lists.OpenList.Add(t);
                 }
 
                 t = Grid.GridPoints.ElementAt(index + 11);
-                if (!Lists.OpenList.Contains(t))
+                if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
-                    t.GX = 10;
+                    t.GX = 10 + checkedEdge.GX;
                     t.FX = t.GX += t.HX;
                     Lists.OpenList.Add(t);
                 }
-                
+
                 t = Grid.GridPoints.ElementAt(index + 10);
-                if (!Lists.OpenList.Contains(t))
+                if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
-                    t.GX = 14;
+                    t.GX = 14 + checkedEdge.GX;
                     t.FX = t.GX += t.HX;
                     Lists.OpenList.Add(t);
                 }
-                
+
                 t = Grid.GridPoints.ElementAt(index + 9);
-                if (!Lists.OpenList.Contains(t))
+                if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
-                    t.GX = 14;
+                    t.GX = 14 + checkedEdge.GX;
                     t.FX = t.GX += t.HX;
                     Lists.OpenList.Add(t);
                 }
-                
+
                 t = Grid.GridPoints.ElementAt(index - 1);
-                if (!Lists.OpenList.Contains(t))
+                if (!Lists.OpenList.Contains(t) && !Lists.ClosedList.Contains(t) && !Lists.BlockedList.Contains(t))
                 {
                     t.Parrent = checkedEdge;
-                    t.GX = 14;
+                    t.GX = 14 + checkedEdge.GX;
                     t.FX = t.GX += t.HX;
                     Lists.OpenList.Add(t);
                 }
