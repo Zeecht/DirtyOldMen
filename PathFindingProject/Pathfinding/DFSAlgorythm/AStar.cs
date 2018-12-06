@@ -53,9 +53,12 @@ namespace PathFindingProject
                 }
                 foreach (Edges i in tmpEdge.Destination1.EdgeList)
                 {
-                    if (!Lists.DfsList.Contains(i.Destination1))
+                    foreach (var e in Lists.BlockedList)
                     {
-                        s.Push(i);
+                        if (!Lists.DfsList.Contains(i.Destination1) && i.Destination1.Rect != e.Rect)
+                        {
+                            s.Push(i);
+                        }
                     }
                 }
             }
@@ -63,12 +66,6 @@ namespace PathFindingProject
             {
                 Grid.Check.Rect = item.Rect;
                 Thread.Sleep(500);
-                if (item.Rect == Grid.GridPoints.ElementAt(85).Rect|| item.Rect == Grid.GridPoints.ElementAt(86).Rect|| item.Rect == Grid.GridPoints.ElementAt(87).Rect)
-                {
-                    Lists.BlockedList.Add(Grid.GridPoints.ElementAt(85));
-                    Lists.BlockedList.Add(Grid.GridPoints.ElementAt(86));
-                    Lists.BlockedList.Add(Grid.GridPoints.ElementAt(87));
-                }
             }
         }
 

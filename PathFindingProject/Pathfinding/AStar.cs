@@ -16,7 +16,6 @@ namespace PathFindingProject
         bool started=false;
         Thread t;
         int counterAstar= 0;
-        int counterDFS = 0;
 
 
         public void Update(GameTime gameTime)
@@ -35,7 +34,43 @@ namespace PathFindingProject
                 if (counterAstar == 0)
                 {
                     started = true;
+                    t = new Thread(() => AstarPathfinding(Grid.GridPoints.ElementAt(11)));
+                    t.Start();
+                    counterAstar++;
+                }
+                else if (counterAstar == 1)
+                {
+                    Lists.ClosedList.Clear();
+                    Lists.OpenList.Clear();
+                    started = true;
+                    t = new Thread(() => AstarPathfinding(Grid.GridPoints.ElementAt(32)));
+                    t.Start();
+                    counterAstar++;
+                }
+                else if (counterAstar == 2)
+                {
+                    Lists.ClosedList.Clear();
+                    Lists.OpenList.Clear();
+                    started = true;
                     t = new Thread(() => AstarPathfinding(Grid.GridPoints.ElementAt(88)));
+                    t.Start();
+                    counterAstar++;
+                }
+                else if (counterAstar == 3)
+                {
+                    Lists.ClosedList.Clear();
+                    Lists.OpenList.Clear();
+                    started = true;
+                    t = new Thread(() => AstarPathfinding(Grid.GridPoints.ElementAt(47)));
+                    t.Start();
+                    counterAstar++;
+                }
+                else if (counterAstar == 4)
+                {
+                    Lists.ClosedList.Clear();
+                    Lists.OpenList.Clear();
+                    started = true;
+                    t = new Thread(() => AstarPathfinding(Grid.GridPoints.ElementAt(81)));
                     t.Start();
                     counterAstar++;
                 }
@@ -46,13 +81,9 @@ namespace PathFindingProject
         {
             if (k.IsKeyDown(Keys.F2) && started == false)
             {
-                if (counterDFS == 0)
-                {
-                    started = true;
-                    t = new Thread(() => Start(Grid.GridPoints.ElementAt(88)));
-                    t.Start();
-                    counterDFS++;
-                }
+                started = true;
+                t = new Thread(() => Start(Grid.GridPoints.ElementAt(87)));
+                t.Start();
             }
         }
 
